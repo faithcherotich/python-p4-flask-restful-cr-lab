@@ -4,8 +4,11 @@ from app import app
 from models import db, Plant
 
 with app.app_context():
+    db.create_all()
+    
 
     Plant.query.delete()
+    
 
     aloe = Plant(
         id=1,
@@ -23,3 +26,8 @@ with app.app_context():
 
     db.session.add_all([aloe, zz_plant])
     db.session.commit()
+    
+    print('Database seeded!')
+
+
+
